@@ -1,0 +1,58 @@
+{% extends 'indexcaretaker.html' %}
+{% block body %}
+    <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #669999;
+  color: white;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="addfamiliarperson#about">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th>First Name </th>
+      <th>Last Name</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Relation</th>
+      <th>&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[4]}}</td>
+      <td><img src="static/familiarperson/{{i[5]}}" height="100" width="100"></td>
+      <td>{{i[6]}}</td>
+      <td><p><a href="editfamiliarperson?id={{i[2]}}#about">EDIT</a></p>
+      <p><a href="deletefamiliarperson?id={{i[2]}}">DELETE</a></p>
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="6"><div align="center">
+        <input type="submit" name="Submit" value="ADD" class="btn btn-secondary " />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

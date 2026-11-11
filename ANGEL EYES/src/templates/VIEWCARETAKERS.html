@@ -1,0 +1,61 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+  <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #669999;
+  color: white;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Date of Birth </th>
+      <th>Place</th>
+      <th>Post</th>
+      <th>Pin</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>&nbsp;</th>
+    </tr>
+
+    {% for i in val %}
+  <tr>
+    <td>{{i[2]}}</td>
+    <td>{{i[3]}}</td>
+    <td>{{i[4]}}</td>
+    <td>{{i[5]}}</td>
+    <td>{{i[6]}}</td>
+    <td>{{i[7]}}</td>
+    <td>{{i[8]}}</td>
+    <td>{{i[9]}}</td>
+    <td>{{i[10]}}</td>
+     <td><a href="blindperson?id={{i[1]}}#about">Blindperson</a></td>
+    </tr>
+  {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}

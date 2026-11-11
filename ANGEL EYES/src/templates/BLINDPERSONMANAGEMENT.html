@@ -1,0 +1,67 @@
+{% extends 'indexcaretaker.html' %}
+{% block body %}
+    <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #669999;
+  color: white;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="addblind#about">
+  <table width="454" border="1" id="customers">
+    <tr>
+      <th width="37">First Name</th>
+      <th width="37">Last Name</th>
+      <th width="45">Gender</th>
+      <th width="33">Date of Birth </th>
+      <th width="33">Place</th>
+      <th width="27">Post</th>
+      <th width="19">Pin</th>
+      <th width="38">Phone</th>
+      <th width="37">IMEI NO: </th>
+      <th width="127">&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td>{{i[3]}}</td>
+      <td>{{i[4]}}</td>
+      <td>{{i[5]}}</td>
+      <td>{{i[6]}}</td>
+      <td>{{i[7]}}</td>
+      <td>{{i[8]}}</td>
+      <td>{{i[9]}}</td>
+      <td><p><a href="edit?id={{i[0]}}#about">EDIT</a></p>
+      <p><a href="delete?id={{i[0]}}">DELETE</a></p></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="10"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="ADD" class="btn btn-secondary" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

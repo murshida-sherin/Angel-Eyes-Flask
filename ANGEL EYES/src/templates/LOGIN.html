@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% block body %}
+<head>
+<title>LOGIN</title>
+    <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #669999;
+  color: white;
+}
+</style>
+</head>
+<form action="login" method="post">
+<table class="table" id="customers">
+<tr><th>Username</th><td><input type="text" name="Username"></td></tr>
+<tr><th>Password</th><td><input type="password" name="password"></td></tr>
+    <tr><td><input type="submit" value="LOGIN" class="btn btn-secondary "></td><td><center><a href="caretakerregistration#about">SIGNUP</a></center></td></tr>
+</table>
+</form>
+
+{% endblock %}

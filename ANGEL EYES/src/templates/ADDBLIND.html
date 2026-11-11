@@ -1,0 +1,96 @@
+{% extends 'indexcaretaker.html' %}
+{% block body %}
+    <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #669999;
+  color: white;
+}
+</style>
+
+<body>
+<form id="form1" name="form1" method="post" action="add">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th>First Name </th>
+      <td><label>
+        <input type="text" name="textfield8" required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Last Name </th>
+      <td><label>
+        <input type="text" name="textfield7" required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" checked />
+      Male 
+      <input name="radiobutton" type="radio" value="female" />
+      Female</label></td>
+    </tr>
+    <tr>
+      <th>Date of Birth </th>
+      <td><label>
+        <input type="date" name="textfield6" required />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td><label>
+        <input type="text" name="textfield5" required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Post</th>
+      <td><label>
+        <input type="text" name="textfield4" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td><label>
+        <input type="text" name="textfield3" required pattern="[0-9]{6}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><label>
+        <input type="text" name="textfield2" required pattern="[6789][0-9]{9}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>IMEI NO</th>
+      <td><label>
+        <input type="text" name="textfield" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="REGISTER" class="btn btn-secondary "/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

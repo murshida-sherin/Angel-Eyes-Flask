@@ -1,0 +1,83 @@
+{% extends 'indexcaretaker.html' %}
+{% block body %}
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #669999;
+  color: white;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="updatecaretaker">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th>First Name </th>
+      <td><label>
+        <input type="text" name="textfield8" required pattern="[A-Z a-z.]{3,25}" value="{{val[2]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Last Name </th>
+      <td><label>
+        <input type="text" name="textfield7" required pattern="[A-Z a-z.]{3,25}" value="{{val[3]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" {% if val[4]=='male'  %} checked {% endif %} />
+      Male 
+      <input name="radiobutton" type="radio" value="female" {% if val[4]=='female'  %} checked {% endif %} />
+      Female</label></td>
+    </tr>
+    <tr>
+      <th>Date of Birth </th>
+      <td><label>
+        <input type="text" name="textfield6" required value="{{val[5]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td><input type="text" name="textfield5" required pattern="[A-Z a-z.]{3,25}" value="{{val[6]}}" /></td>
+    </tr>
+    <tr>
+      <th>Post</th>
+      <td><input type="text" name="textfield4" required pattern="[A-Z a-z.]{3,25}" value="{{val[7]}}" /></td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td><input type="text" name="textfield3" required required pattern="[0-9]{6}" value="{{val[8]}}" /></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><input type="text" name="textfield2" required required pattern="[6789][0-9]{9}" value="{{val[9]}}" /></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><input type="text" name="textfield" required required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" value="{{val[10]}}"/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value="UPDATE" class="btn btn-secondary" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
